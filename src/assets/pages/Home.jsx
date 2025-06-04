@@ -17,7 +17,7 @@ export default function Home() {
 
   return (
     <section
-      className="w-full min-h-svh bg-cover bg-center bg-no-repeat text-white "
+      className="w-full min-h-svh bg-cover bg-center bg-no-repeat text-white pt-[7rem] "
       style={backgroundStyle}
     >
       <PageHeader />
@@ -26,5 +26,5 @@ export default function Home() {
 }
 
 function PageHeader() {
-  return <p></p>;
+  return <p>Home</p>;
 }
