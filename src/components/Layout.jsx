@@ -67,7 +67,7 @@ function MobileNavBar() {
       {/* mobile nav menu */}
 
       {isOpen && (
-        <div className="absolute top-[0] min-h-svh w-[75%] self-end flex flex-col bg-black">
+        <div className="absolute top-[0] min-h-svh w-[75%] self-end flex flex-col backdrop-blur-2xl bg-[linear-gradient(120deg,rgba(208,214,249,0.15)_0%,rgba(255,255,255,0.15)_100%)] ">
           <div className="flex flex-col py-[3rem] px-[1.5rem] w-full">
             <img
               src={closeIcon}
