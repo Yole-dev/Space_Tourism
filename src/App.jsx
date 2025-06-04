@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Layout from "./components/Layout";
-import Home from "./assets/pages/home";
-import Destination from "./assets/pages/destination";
+import HomePage from "./assets/pages/home";
+import Destination from "./assets/pages/Destination";
 import Crew from "./assets/pages/crew";
 import Technology from "./assets/pages/Technology";
 
