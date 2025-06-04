@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Layout from "./components/Layout";
-import HomePage from "./assets/pages/home.jsx";
+import Home from "./assets/pages/Home.jsx";
 import Destination from "./assets/pages/Destination";
 import Crew from "./assets/pages/crew";
 import Technology from "./assets/pages/Technology";
@@ -14,7 +14,7 @@ export default function App() {
           path="/"
           element={
             <Layout>
-              <HomePage />
+              <Home />
             </Layout>
           }
         />

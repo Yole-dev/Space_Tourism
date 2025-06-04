@@ -6,7 +6,7 @@ import mobileBackground from "../images/home/background-home-mobile.jpg";
 import tabletBackground from "../images/home/background-home-tablet.jpg";
 import desktopBackground from "../images/home/background-home-desktop.jpg";
 
-export default function HomePage() {
+export default function Home() {
   const backgrounds = {
     mobile: mobileBackground,
     tablet: tabletBackground,
