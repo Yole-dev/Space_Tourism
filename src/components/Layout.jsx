@@ -67,7 +67,7 @@ function MobileNavBar() {
       {/* mobile nav menu */}
 
       {isOpen && (
-        <div className="absolute top-[0] min-h-svh w-[75%] self-end flex flex-col backdrop-blur-2xl bg-[linear-gradient(120deg,rgba(208,214,249,0.15)_0%,rgba(255,255,255,0.15)_100%)] ">
+        <div className="absolute top-[0] min-h-svh w-[75%] self-end flex flex-col backdrop-blur-2xl bg-white/10 ">
           <div className="flex flex-col py-[3rem] px-[1.5rem] w-full">
             <img
               src={closeIcon}
@@ -77,13 +77,20 @@ function MobileNavBar() {
             />
           </div>
 
-          <ul className="flex flex-col gap-[2rem] ps-[2rem]">
+          <ul className="flex flex-col gap-[2rem] ps-[2rem] w-full">
             {navItems.map((item, i) => (
-              <li key={item.name} className="text-white">
+              <li
+                key={item.name}
+                className="text-white flex justify-between items-center"
+              >
                 <Link to={item.path}>
                   <span> 0{i} </span>
                   <span> {item.name} </span>
                 </Link>
+
+                {location.pathname === item.path && (
+                  <div className="bg-white h-[20px] w-[2%]"></div>
+                )}
               </li>
             ))}
           </ul>
