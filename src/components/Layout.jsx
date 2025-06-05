@@ -7,6 +7,7 @@ import { useScreenWidth } from "../assets/hooks/useScreenWidth";
 import logo from "../assets/images/shared/logo.svg";
 import openIcon from "../assets/images/shared/icon-hamburger.svg";
 import closeIcon from "../assets/images/shared/icon-close.svg";
+import navLine from "../assets/images/shared/line.png";
 
 export default function Layout({ children }) {
   const location = useLocation();
@@ -131,5 +132,33 @@ function TabletNavBar() {
 }
 
 function DesktopNavBar() {
-  return;
+  return (
+    <section className="z-[99] pt-[2.5rem] absolute flex flex-col w-full ">
+      <div className="w-full flex ps-[3rem] justify-between items-center">
+        <img src={logo} alt="company logo" />
+
+        <img src={navLine} alt="a line" className="relative left-[3rem]" />
+
+        <div className="w-[55%] h-[100px] flex justify-end items-end pe-[4rem] backdrop-blur-[2rem] bg-white/10">
+          <ul className="flex gap-[2rem] items-start">
+            {navItems.map((item, i) => (
+              <li
+                key={item.name}
+                className="text-white flex flex-col justify-center gap-[2rem] "
+              >
+                <Link to={item.path}>
+                  <span> 0{i} </span>
+                  <span> {item.name.toLocaleUpperCase()} </span>
+                </Link>
+
+                {location.pathname === item.path && (
+                  <div className="bg-white h-[3px] w-[full]"></div>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+  );
 }
