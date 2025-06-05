@@ -85,7 +85,7 @@ function MobileNavBar() {
               >
                 <Link to={item.path}>
                   <span> 0{i} </span>
-                  <span> {item.name} </span>
+                  <span> {item.name.toLocaleUpperCase()} </span>
                 </Link>
 
                 {location.pathname === item.path && (
@@ -101,7 +101,33 @@ function MobileNavBar() {
 }
 
 function TabletNavBar() {
-  return;
+  return (
+    <section className="z-[99] absolute flex flex-col w-full">
+      <div className="flex ps-[2rem] justify-between items-center">
+        <img src={logo} alt="company logo" />
+
+        <div className="w-[86%] h-[100px] flex justify-end items-end pe-[2rem] backdrop-blur-2xl bg-white/10">
+          <ul className="flex gap-[2rem] items-start">
+            {navItems.map((item, i) => (
+              <li
+                key={item.name}
+                className="text-white flex flex-col justify-center gap-[2rem] "
+              >
+                <Link to={item.path}>
+                  <span> 0{i} </span>
+                  <span> {item.name.toLocaleUpperCase()} </span>
+                </Link>
+
+                {location.pathname === item.path && (
+                  <div className="bg-white h-[3px] w-[full]"></div>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+  );
 }
 
 function DesktopNavBar() {
