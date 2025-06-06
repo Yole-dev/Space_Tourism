@@ -56,7 +56,7 @@ function MobileNavBar() {
   return (
     <section className=" z-[99] absolute flex flex-col w-full py-[2rem]">
       <div className="flex justify-between items-center px-[1.5rem] ">
-        <img src={logo} alt="company logo" />
+        <img src={logo} alt="company logo" className="h-[40px] w-[40px]" />
         <img
           src={openIcon}
           alt="open menu hamburger icon"
@@ -82,11 +82,14 @@ function MobileNavBar() {
             {navItems.map((item, i) => (
               <li
                 key={item.name}
-                className="text-white flex justify-between items-center"
+                className="text-white flex justify-between items-center font-barlow-condensed font-[16px] "
               >
-                <Link to={item.path}>
-                  <span> 0{i} </span>
-                  <span> {item.name.toLocaleUpperCase()} </span>
+                <Link to={item.path} className="flex gap-[0.5rem]">
+                  <span className="font-[400] tracking-[2.7px]"> 0{i} </span>
+                  <span className="font-[200] tracking-[2px]">
+                    {" "}
+                    {item.name.toLocaleUpperCase()}{" "}
+                  </span>
                 </Link>
 
                 {location.pathname === item.path && (
@@ -105,18 +108,21 @@ function TabletNavBar() {
   return (
     <section className="z-[99] absolute flex flex-col w-full">
       <div className="flex ps-[2rem] justify-between items-center">
-        <img src={logo} alt="company logo" />
+        <img src={logo} alt="company logo" className="h-[48px] w-[48px]" />
 
         <div className="w-[86%] h-[100px] flex justify-end items-end pe-[2rem] backdrop-blur-2xl bg-white/10">
           <ul className="flex gap-[2rem] items-start">
             {navItems.map((item, i) => (
               <li
                 key={item.name}
-                className="text-white flex flex-col justify-center gap-[2rem] "
+                className="text-white flex flex-col justify-center gap-[2rem] font-barlow-condensed font-[16px] "
               >
                 <Link to={item.path}>
-                  <span> 0{i} </span>
-                  <span> {item.name.toLocaleUpperCase()} </span>
+                  <span className="font-[400] tracking-[2.7px]"> 0{i} </span>
+                  <span className="font-[200] tracking-[2px]">
+                    {" "}
+                    {item.name.toLocaleUpperCase()}{" "}
+                  </span>
                 </Link>
 
                 {location.pathname === item.path && (
@@ -135,7 +141,7 @@ function DesktopNavBar() {
   return (
     <section className="z-[99] pt-[2.5rem] absolute flex flex-col w-full ">
       <div className="w-full flex ps-[3rem] justify-between items-center">
-        <img src={logo} alt="company logo" />
+        <img src={logo} alt="company logo" className="h-[48px] w-[48px]" />
 
         <img src={navLine} alt="a line" className="relative left-[3rem]" />
 
@@ -144,11 +150,14 @@ function DesktopNavBar() {
             {navItems.map((item, i) => (
               <li
                 key={item.name}
-                className="text-white flex flex-col justify-center gap-[2rem] "
+                className="text-white flex flex-col justify-center gap-[2rem] font-barlow-condensed font-[16px]"
               >
                 <Link to={item.path}>
-                  <span> 0{i} </span>
-                  <span> {item.name.toLocaleUpperCase()} </span>
+                  <span className="font-[400] tracking-[2.7px]"> 0{i} </span>
+                  <span className="font-[200] tracking-[2px]">
+                    {" "}
+                    {item.name.toLocaleUpperCase()}{" "}
+                  </span>
                 </Link>
 
                 {location.pathname === item.path && (
