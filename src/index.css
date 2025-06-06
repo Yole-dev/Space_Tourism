@@ -17,3 +17,19 @@
   --color-custom-black: #0b0d17;
   --color-custom-fade: #d0d6f9;
 }
+
+/* Custom animation  */
+
+@theme {
+  --animate-soft-bounce: soft-bounce 1.5s ease-in-out infinite;
+
+  @keyframes soft-bounce {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-8%);
+    }
+  }
+}

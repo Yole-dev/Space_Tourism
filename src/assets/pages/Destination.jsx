@@ -21,7 +21,6 @@ import lineTablet from "../images/destination/line2.png";
 import lineDesktop from "../images/destination/line3.png";
 
 // Destinations data
-
 const destinations = [
   {
     id: "moon",
@@ -84,7 +83,7 @@ export default function Destination() {
 
   return (
     <section
-      className="w-full min-h-svh bg-cover bg-center bg-no-repeat flex flex-col items-center text-white pt-[7rem] md:pt-[9.5rem]  xl:min-h-[888px] xl:pt-[12rem] "
+      className="w-full min-h-svh bg-cover bg-center bg-no-repeat flex flex-col items-center text-white pt-[7rem] md:pt-[9.5rem]  xl:min-h-[1024px] xl:pt-[12rem] "
       style={backgroundStyle}
     >
       <PageContent />
@@ -124,7 +123,7 @@ function HeroSection({ destination }) {
       <img
         src={destination.image}
         alt="planetry body image"
-        className=" w-[150px] h-[150px] md:w-[300px] md:h-[300px] xl:w-[480px] xl:h-[480px]"
+        className=" w-[150px] h-[150px] animate-[spin_20s_linear_infinite] md:w-[300px] md:h-[300px] xl:w-[480px] xl:h-[480px]"
       />
     </div>
   );

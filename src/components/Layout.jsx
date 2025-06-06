@@ -115,7 +115,7 @@ function TabletNavBar() {
       <div className="flex ps-[2rem] justify-between items-center">
         <img src={logo} alt="company logo" className="h-[48px] w-[48px]" />
 
-        <div className="w-[86%] h-[100px] flex justify-end items-end pe-[2rem] backdrop-blur-2xl bg-white/10">
+        <div className="w-[640px] h-[96px] flex justify-end items-end pe-[2rem] backdrop-blur-2xl bg-white/10">
           <ul className="flex gap-[2rem] items-start">
             {navItems.map((item, i) => (
               <li
@@ -144,13 +144,13 @@ function TabletNavBar() {
 
 function DesktopNavBar() {
   return (
-    <section className="z-[99] pt-[2.5rem] absolute flex flex-col w-full ">
+    <section className="z-[99] pt-[1.7rem] absolute flex flex-col w-full ">
       <div className="w-full flex ps-[3rem] justify-between items-center">
         <img src={logo} alt="company logo" className="h-[48px] w-[48px]" />
 
         <img src={navLine} alt="a line" className="relative left-[3rem]" />
 
-        <div className="w-[55%] h-[100px] flex justify-end items-end pe-[4rem] backdrop-blur-[2rem] bg-white/10">
+        <div className="w-[736px] h-[96px] flex justify-end items-end pe-[4rem] backdrop-blur-[2rem] bg-white/10">
           <ul className="flex gap-[3rem] items-start">
             {navItems.map((item, i) => (
               <li
