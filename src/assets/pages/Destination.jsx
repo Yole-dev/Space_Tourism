@@ -1,3 +1,6 @@
+// imported hooks
+import { useState } from "react";
+
 // imported custom hooks
 import { useResponsiveBackground } from "../hooks/useResponsiveBackground";
 import { useScreenWidth } from "../hooks/useScreenWidth";
@@ -17,10 +20,12 @@ import lineMobile from "../images/destination/line.png";
 import lineTablet from "../images/destination/line2.png";
 import lineDesktop from "../images/destination/line3.png";
 
-// Destination data
+// Destinations data
 
-const destination = {
-  moon: {
+const destinations = [
+  {
+    id: "moon",
+    position: "1",
     name: "moon",
     image: moon,
     description: `See our planet as you’ve never seen it before. A perfect relaxing trip away to help 
@@ -30,7 +35,9 @@ const destination = {
     travelTime: "3 days",
   },
 
-  mars: {
+  {
+    id: "mars",
+    position: "2",
     name: "mars",
     image: mars,
     description: `Don’t forget to pack your hiking boots. You’ll need them to tackle Olympus Mons, 
@@ -40,7 +47,9 @@ const destination = {
     travelTime: "9 months",
   },
 
-  europa: {
+  {
+    id: "europa",
+    position: "3",
     name: "europa",
     image: europa,
     description: `The smallest of the four Galilean moons orbiting Jupiter, Europa is a 
@@ -51,7 +60,9 @@ const destination = {
     travelTime: "3 years",
   },
 
-  titan: {
+  {
+    id: "titan",
+    position: "4",
     name: "titan",
     image: titan,
     description: `The only moon known to have a dense atmosphere other than Earth, Titan 
@@ -60,7 +71,7 @@ const destination = {
     distance: "1.6 bil. km",
     travelTime: "7 years",
   },
-};
+];
 
 export default function Destination() {
   const backgrounds = {
@@ -82,26 +93,36 @@ export default function Destination() {
 }
 
 function PageContent() {
+  const [activeTab, setActiveTab] = useState(destinations[0].id);
+
+  const destination = destinations.find(
+    (destination) => destination.id === activeTab
+  );
+
   return (
     <section className="w-[327px] flex flex-col items-center gap-[2rem] mb-[1rem] md:w-[688px] md:mb-[0] xl:w-[1110px] xl:flex-row xl:justify-evenly xl:items-end ">
-      <HeroSection />
+      <HeroSection destination={destination} />
 
-      <DestinationDetails>
-        <DestinationNav />
+      <DestinationDetails destination={destination}>
+        <DestinationNav
+          currentDestination={activeTab}
+          setDestination={setActiveTab}
+        />
       </DestinationDetails>
     </section>
   );
 }
 
-function HeroSection() {
+function HeroSection({ destination }) {
   return (
     <div className="w-full flex flex-col items-center gap-[3rem] md:gap-[3.5rem] xl:items-start xl:gap-[6rem] ">
       <p className="flex items-center gap-[1rem] font-barlow-condensed font-[300] text-[16px] uppercase tracking-[15%] md:self-start md:text-[20px] xl:text-[28px] ">
-        <span className=" text-custom-fade">01</span> pick your destination
+        <span className=" text-custom-fade">0 {destination.position} </span>{" "}
+        pick your destination
       </p>
 
       <img
-        src={destination.moon.image}
+        src={destination.image}
         alt="planetry body image"
         className=" w-[150px] h-[150px] md:w-[300px] md:h-[300px] xl:w-[480px] xl:h-[480px]"
       />
@@ -109,18 +130,19 @@ function HeroSection() {
   );
 }
 
-function DestinationDetails({ children }) {
+function DestinationDetails({ children, destination }) {
   const { width } = useScreenWidth();
+
   return (
     <div className="w-full flex flex-col items-center gap-[2rem] md:w-[514px] xl:w-[539px] ">
       {children}
 
       <p className=" font-bellefair text-[56px] uppercase md:text-[80px] xl:w-[445px] xl:text-[96px] ">
-        {destination.moon.name}
+        {destination.name}
       </p>
 
       <p className=" font-barlow font-[300] text-center text-custom-fade text-[15px] md:text-[16px] xl:w-[445px] xl:text-left xl:text-[18px] ">
-        {destination.moon.description}
+        {destination.description}
       </p>
 
       <img
@@ -135,7 +157,7 @@ function DestinationDetails({ children }) {
           </span>
 
           <span className=" font-bellefair font-[400] text-[28px] ">
-            {destination.moon.distance}
+            {destination.distance}
           </span>
         </p>
 
@@ -145,7 +167,7 @@ function DestinationDetails({ children }) {
           </span>
 
           <span className=" font-bellefair font-[400] text-[28px] ">
-            {destination.moon.travelTime}
+            {destination.travelTime}
           </span>
         </p>
       </div>
@@ -153,24 +175,20 @@ function DestinationDetails({ children }) {
   );
 }
 
-function DestinationNav() {
-  const navList = [
-    { name: "moon" },
-    { name: "mars" },
-    { name: "europa" },
-    { name: "titan" },
-  ];
-
+function DestinationNav({ currentDestination, setDestination }) {
   return (
     <ul className=" flex gap-[1.5rem] uppercase xl:self-start ">
-      {navList.map((item, i) => (
+      {destinations.map((destination) => (
         <li
           className=" flex flex-col items-center gap-[1rem] font-barlow-condensed font-[300] text-[14px] tracking-[2px] md:text-[16px]"
-          key={i}
+          key={destination.id}
+          onClick={() => setDestination(destination.id)}
         >
-          {item.name}
+          {destination.name}
 
-          <span className="w-full h-[4px] bg-white"></span>
+          {currentDestination === destination.id && (
+            <span className="w-full h-[4px] bg-white"></span>
+          )}
         </li>
       ))}
     </ul>
