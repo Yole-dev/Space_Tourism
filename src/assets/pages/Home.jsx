@@ -17,15 +17,15 @@ export default function Home() {
 
   return (
     <section
-      className="w-full min-h-svh bg-cover bg-center bg-no-repeat text-white pt-[6rem] md:pt-[11rem] xl:pt-[15rem] "
+      className="w-full min-h-svh bg-cover bg-no-repeat text-white pt-[8rem] md:pt-[11rem] xl:pt-[15rem] xl:min-h-[888px] "
       style={backgroundStyle}
     >
-      <PageHeader />
+      <PageContent />
     </section>
   );
 }
 
-function PageHeader() {
+function PageContent() {
   return (
     <section className="w-full flex flex-col items-center gap-[4.5rem] md:gap-[3.5rem] xl:flex-row xl:justify-evenly xl:gap-[0] ">
       <div className="uppercase w-[80%] flex flex-col gap-[1rem] items-center text-center xl:items-start xl:text-justify xl:w-[auto] xl:gap-[0.7rem] ">

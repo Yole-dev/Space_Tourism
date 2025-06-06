@@ -18,18 +18,18 @@ export default function Layout({ children }) {
 
   return (
     <div className="box-border flex flex-col">
-      <NavBar />
+      <NavBar location={location} />
       <main>{children}</main>
     </div>
   );
 }
 
-function NavBar() {
+function NavBar({ location }) {
   const { width } = useScreenWidth();
   return (
     <>
       {width < 768 ? (
-        <MobileNavBar />
+        <MobileNavBar location={location} />
       ) : width < 1200 ? (
         <TabletNavBar />
       ) : (
@@ -46,12 +46,17 @@ const navItems = [
   { path: "/technology", name: "Technology" },
 ];
 
-function MobileNavBar() {
+function MobileNavBar({ location }) {
   const [isOpen, setIsOpen] = useState(false);
 
   function handleNavToggle() {
     setIsOpen(!isOpen);
   }
+
+  // closing the navbar on pathname change
+  useEffect(() => {
+    setIsOpen(false);
+  }, [location.pathname]);
 
   return (
     <section className=" z-[99] absolute flex flex-col w-full py-[2rem]">
@@ -93,7 +98,7 @@ function MobileNavBar() {
                 </Link>
 
                 {location.pathname === item.path && (
-                  <div className="bg-white h-[20px] w-[2%]"></div>
+                  <div className="bg-white h-[20px] w-[0.3rem]"></div>
                 )}
               </li>
             ))}
@@ -146,7 +151,7 @@ function DesktopNavBar() {
         <img src={navLine} alt="a line" className="relative left-[3rem]" />
 
         <div className="w-[55%] h-[100px] flex justify-end items-end pe-[4rem] backdrop-blur-[2rem] bg-white/10">
-          <ul className="flex gap-[2rem] items-start">
+          <ul className="flex gap-[3rem] items-start">
             {navItems.map((item, i) => (
               <li
                 key={item.name}
