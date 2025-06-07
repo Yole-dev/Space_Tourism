@@ -57,7 +57,7 @@ function PageContent({ width, height }) {
 
         <p className=" font-bellefair text-[80px] md:text-[144px]"> space </p>
 
-        <p className="w-[327px] font-barlow font-[400] normal-case text-[15px] text-custom-fade leading-[180%] md:w-[512px] md:text-[16px] xl:w-[540px] xl:text-[18px] ">
+        <p className="w-[327px] font-barlow font-[400] normal-case text-[15px] text-custom-fade/30 leading-[180%] md:w-[512px] md:text-[16px] xl:w-[540px] xl:text-[18px] ">
           Let’s face it; if you want to go to space, you might as well genuinely
           go to outer space and not hover kind of on the edge of it. Well sit
           back, and relax because we’ll give you a truly out of this world

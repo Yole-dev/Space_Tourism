@@ -24,7 +24,6 @@ import lineDesktop from "../images/destination/line3.png";
 const destinations = [
   {
     id: "moon",
-    position: "1",
     name: "moon",
     image: moon,
     description: `See our planet as you’ve never seen it before. A perfect relaxing trip away to help 
@@ -36,7 +35,6 @@ const destinations = [
 
   {
     id: "mars",
-    position: "2",
     name: "mars",
     image: mars,
     description: `Don’t forget to pack your hiking boots. You’ll need them to tackle Olympus Mons, 
@@ -48,7 +46,6 @@ const destinations = [
 
   {
     id: "europa",
-    position: "3",
     name: "europa",
     image: europa,
     description: `The smallest of the four Galilean moons orbiting Jupiter, Europa is a 
@@ -61,7 +58,6 @@ const destinations = [
 
   {
     id: "titan",
-    position: "4",
     name: "titan",
     image: titan,
     description: `The only moon known to have a dense atmosphere other than Earth, Titan 
@@ -116,8 +112,7 @@ function HeroSection({ destination }) {
   return (
     <div className="w-full flex flex-col items-center gap-[3rem] md:gap-[3.5rem] xl:items-start xl:gap-[6rem] ">
       <p className="flex items-center gap-[1rem] font-barlow-condensed font-[300] text-[16px] uppercase tracking-[15%] md:self-start md:text-[20px] xl:text-[28px] ">
-        <span className=" text-custom-fade">0 {destination.position} </span>{" "}
-        pick your destination
+        <span className=" text-custom-fade/30"> 01 </span> pick your destination
       </p>
 
       <img
@@ -140,7 +135,7 @@ function DestinationDetails({ children, destination }) {
         {destination.name}
       </p>
 
-      <p className=" font-barlow font-[300] text-center text-custom-fade text-[15px] md:text-[16px] xl:w-[445px] xl:text-left xl:text-[18px] ">
+      <p className=" font-barlow font-[300] text-center text-custom-fade/30 text-[15px] md:text-[16px] xl:w-[445px] xl:text-left xl:text-[18px] ">
         {destination.description}
       </p>
 
@@ -151,7 +146,7 @@ function DestinationDetails({ children, destination }) {
 
       <div className="flex flex-col items-center gap-[1.5rem] uppercase md:flex-row md:gap-[7rem] xl:w-[445px] xl:items-start ">
         <p className="flex flex-col items-center gap-[0.7rem] xl:items-start ">
-          <span className="font-barlow-condensed font-[400] text-[14px] text-custom-fade tracking-[2px] ">
+          <span className="font-barlow-condensed font-[400] text-[14px] text-custom-fade/30 tracking-[2px] ">
             avg. distance
           </span>
 
@@ -161,7 +156,7 @@ function DestinationDetails({ children, destination }) {
         </p>
 
         <p className="flex flex-col items-center gap-[0.7rem] xl:items-start">
-          <span className="font-barlow-condensed font-[400] text-[14px] text-custom-fade tracking-[2px]">
+          <span className="font-barlow-condensed font-[400] text-[14px] text-custom-fade/30 tracking-[2px]">
             est. travel time
           </span>
 
