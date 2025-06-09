@@ -101,13 +101,11 @@ function PageContent() {
         setCrewMember={setActiveTab}
       />
 
-      <div className=" flex flex-col items-center w-[271.27px] inset-shadow-xl inset-shadow-black md:w-[446.74px] xl:w-[539px]  ">
-        <img
-          src={crewMember.image}
-          alt={crewMember.name}
-          className=" w-[271.27px] md:w-[446.74px] xl:w-[539px] "
-        />
-      </div>
+      <img
+        src={crewMember.image}
+        alt={crewMember.name}
+        className=" w-[271.27px] md:w-[446.74px] md:h-[560px] xl:w-[539px] xl:h-[676px] "
+      />
     </section>
   );
 }
@@ -123,18 +121,15 @@ function CrewMemberInfo({ member, currentCrewMember, setCrewMember }) {
 
         <p className=" w-full flex flex-col items-center gap-[0.2rem] font-bellefair uppercase xl:items-start xl:mt-[10rem] ">
           <span className=" text-custom-fade/30 text-[18px] md:text-[24px] xl:text-[32px] ">
-            {" "}
-            {member.role}{" "}
+            {member.role}
           </span>
           <span className=" text-[24px] md:text-[40px] xl:text-[56px] ">
-            {" "}
-            {member.name}{" "}
+            {member.name}
           </span>
         </p>
 
         <p className=" w-full font-barlow font-[400] text-[15px] text-center text-custom-fade/80 leading-[180%] md:text-[16px] xl:text-left xl:text-[18px] ">
-          {" "}
-          {member.bio}{" "}
+          {member.bio}
         </p>
       </div>
 
