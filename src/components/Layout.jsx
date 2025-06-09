@@ -59,7 +59,7 @@ function MobileNavBar({ location }) {
   }, [location.pathname]);
 
   return (
-    <section className=" z-[99] absolute flex flex-col w-full py-[2rem]">
+    <section className=" z-[99] fixed flex flex-col w-full py-[2rem]">
       <div className="flex justify-between items-center px-[1.5rem] ">
         <img src={logo} alt="company logo" className="h-[40px] w-[40px]" />
         <img
@@ -73,7 +73,7 @@ function MobileNavBar({ location }) {
       {/* mobile nav menu */}
 
       {isOpen && (
-        <div className="absolute top-[0] min-h-svh w-[75%] self-end flex flex-col backdrop-blur-2xl bg-white/10 ">
+        <div className="fixed top-[0] min-h-svh w-[75%] self-end flex flex-col backdrop-blur-2xl bg-white/10 ">
           <div className="flex flex-col py-[3rem] px-[1.5rem] w-full">
             <img
               src={closeIcon}

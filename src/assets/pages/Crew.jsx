@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 // imported custom hooks
 import { useResponsiveBackground } from "../hooks/useResponsiveBackground";
@@ -81,17 +81,17 @@ function PageContent() {
 
   const crewMember = crew.find((member) => member.id === activeTab);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveTab((prevId) => {
-        const currentIndex = crew.findIndex((member) => member.id === prevId);
-        const nextIndex = (currentIndex + 1) % crew.length;
-        return crew[nextIndex].id;
-      });
-    }, 10000);
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setActiveTab((prevId) => {
+  //       const currentIndex = crew.findIndex((member) => member.id === prevId);
+  //       const nextIndex = (currentIndex + 1) % crew.length;
+  //       return crew[nextIndex].id;
+  //     });
+  //   }, 10000);
 
-    return () => clearInterval(interval);
-  }, []);
+  //   return () => clearInterval(interval);
+  // }, []);
 
   return (
     <section className=" w-[327px] flex flex-col items-center gap-[2.5rem] md:w-[688px] md:gap-[3rem] xl:w-[1110px] xl:flex-row xl:items-end xl:justify-between xl:h-[792px] ">
@@ -101,11 +101,13 @@ function PageContent() {
         setCrewMember={setActiveTab}
       />
 
-      <img
-        src={crewMember.image}
-        alt={crewMember.name}
-        className=" w-[271.27px] inset-shadow-xl inset-shadow-black md:w-[446.74px] xl:w-[539px] "
-      />
+      <div className=" flex flex-col items-center w-[271.27px] inset-shadow-xl inset-shadow-black md:w-[446.74px] xl:w-[539px]  ">
+        <img
+          src={crewMember.image}
+          alt={crewMember.name}
+          className=" w-[271.27px] md:w-[446.74px] xl:w-[539px] "
+        />
+      </div>
     </section>
   );
 }

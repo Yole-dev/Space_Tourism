@@ -174,7 +174,7 @@ function DestinationNav({ currentDestination, setDestination }) {
     <ul className=" flex gap-[1.5rem] uppercase xl:self-start ">
       {destinations.map((destination) => (
         <li
-          className=" flex flex-col items-center gap-[1rem] font-barlow-condensed font-[300] text-[14px] tracking-[2px] md:text-[16px]"
+          className=" flex flex-col items-center gap-[1rem] font-barlow-condensed font-[300] text-[14px] tracking-[2px] cursor-pointer md:text-[16px]"
           key={destination.id}
           onClick={() => setDestination(destination.id)}
         >
