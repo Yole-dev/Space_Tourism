@@ -16,9 +16,9 @@ import mars from "../images/destination/image-mars.webp";
 import europa from "../images/destination/image-europa.webp";
 import titan from "../images/destination/image-titan.webp";
 
-import lineMobile from "../images/destination/line.png";
-import lineTablet from "../images/destination/line2.png";
-import lineDesktop from "../images/destination/line3.png";
+import lineMobile from "../images/destination/Line.png";
+import lineTablet from "../images/destination/Line2.png";
+import lineDesktop from "../images/destination/Line3.png";
 
 // Destinations data
 const destinations = [
