@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 // imported custom hooks
 import { useResponsiveBackground } from "../hooks/useResponsiveBackground";
@@ -56,7 +56,7 @@ export default function Technology() {
 
   return (
     <section
-      className="w-full min-h-svh bg-cover bg-center bg-no-repeat flex flex-col items-center text-white pt-[8rem] md:pt-[9rem] xl:min-h-[1024px]"
+      className="w-full bg-cover bg-center bg-no-repeat flex flex-col items-center text-white pt-[6rem] md:pt-[9rem] xl:min-h-[1024px]"
       style={backgroundStyle}
     >
       <PageContent imgScope={scope} />
@@ -68,6 +68,10 @@ function PageContent({ imgScope }) {
   const [activeTab, setActiveTab] = useState(techData[0].id);
   const currentTech = techData.find((item) => item.id === activeTab);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [activeTab]);
+
   //getting dynamic image
   const imagePath = `../images/technology/${currentTech.imageBase}-${imgScope}.jpg`;
   const image = images[imagePath]?.default ?? "";
@@ -75,7 +79,7 @@ function PageContent({ imgScope }) {
     "/src/assets/images/technology/image-space-capsule-portrait.jpg";
 
   return (
-    <section className=" w-full flex flex-col gap-[5rem] xl:w-[1275px] xl:self-end ">
+    <section className=" w-full h-[900px] flex flex-col gap-[5rem] md:h-svh xl:w-[1275px] xl:self-end ">
       <p className="self-center flex items-center font-barlow-condensed font-[300] text-white text-[16px] tracking-[15%] uppercase gap-[1rem] md:self-start md:ps-[2rem] md:text-[20px] xl:text-[28px] ">
         <span className=" font-[400] text-custom-fade">03</span>
         <span>space launch 101</span>

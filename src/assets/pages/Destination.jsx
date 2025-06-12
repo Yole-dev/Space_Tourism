@@ -1,5 +1,5 @@
 // imported hooks
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 // imported custom hooks
 import { useResponsiveBackground } from "../hooks/useResponsiveBackground";
@@ -93,6 +93,10 @@ function PageContent() {
   const destination = destinations.find(
     (destination) => destination.id === activeTab
   );
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [activeTab]);
 
   return (
     <section className="w-[327px] flex flex-col items-center gap-[2rem] mb-[1rem] md:w-[688px] md:mb-[0] xl:w-[1110px] xl:flex-row xl:justify-evenly xl:items-end ">
