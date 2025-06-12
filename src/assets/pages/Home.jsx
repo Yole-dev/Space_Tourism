@@ -21,7 +21,7 @@ export default function Home() {
 
   return (
     <section
-      className={`w-full h-dvh bg-cover bg-center bg-no-repeat text-white pt-[5rem] ${
+      className={`w-full bg-cover bg-center bg-no-repeat text-white pt-[5rem] ${
         width >= 390 ? "pt-[8rem]" : ""
       } md:max-h-[1024px] md:pt-[11rem] xl:pt-[13rem] ${
         height > 800 ? "xl:pt-[21rem]" : ""
@@ -36,14 +36,14 @@ export default function Home() {
 function PageContent({ width, height }) {
   return (
     <section
-      className={`w-full flex flex-col items-center gap-[4.5rem] ${
+      className={`w-full h-svh flex flex-col items-center gap-[4.5rem] ${
         width <= 360
           ? "gap-[9rem]"
           : width === 390
           ? "gap-[10rem]"
-          : width === 412
+          : width >= 412
           ? "gap-[13rem]"
-          : width === 430
+          : width >= 430
           ? "gap-[15rem]"
           : ""
       } md:gap-[3.5rem] xl:flex-row xl:justify-evenly xl:gap-[0] ${
