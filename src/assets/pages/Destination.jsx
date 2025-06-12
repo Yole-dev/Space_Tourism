@@ -79,7 +79,7 @@ export default function Destination() {
 
   return (
     <section
-      className="w-full min-h-svh bg-cover bg-center bg-no-repeat flex flex-col items-center text-white pt-[7rem] md:pt-[9.5rem]  xl:min-h-[1024px] xl:pt-[12rem] "
+      className="w-full bg-cover bg-center bg-no-repeat flex flex-col items-center text-white pt-[7rem] pb-[2rem] overflow-y-hidden md:pt-[9.5rem]  xl:min-h-[1024px] xl:pt-[12rem] "
       style={backgroundStyle}
     >
       <PageContent />

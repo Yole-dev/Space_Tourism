@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 // imported custom hooks
 import { useResponsiveBackground } from "../hooks/useResponsiveBackground";
@@ -9,10 +9,10 @@ import tabletBackground from "../images/crew/background-crew-tablet.jpg";
 import desktopBackground from "../images/crew/background-crew-desktop.jpg";
 
 // imported content images
-import douglas from "../images/crew/image-douglas-hurley.webp";
-import mark from "../images/crew/image-mark-shuttleworth.webp";
-import victor from "../images/crew/image-victor-glover.webp";
-import anousheh from "../images/crew/image-anousheh-ansari.webp";
+import douglas from "../images/crew/image-douglas-hurley.png";
+import mark from "../images/crew/image-mark-shuttleworth.png";
+import victor from "../images/crew/image-victor-glover.png";
+import anousheh from "../images/crew/image-anousheh-ansari.png";
 
 const crew = [
   {
@@ -68,7 +68,7 @@ export default function Crew() {
 
   return (
     <section
-      className="w-full min-h-svh bg-cover bg-center bg-no-repeat flex flex-col items-center text-white pt-[8rem] md:pt-[9rem] xl:min-h-[1024px] "
+      className="w-full min-h-full bg-cover bg-center bg-no-repeat flex flex-col items-center text-white pt-[8rem] overflow-hidden md:pt-[9rem] xl:min-h-[1024px] "
       style={backgroundStyle}
     >
       <PageContent />
@@ -80,6 +80,10 @@ function PageContent() {
   const [activeTab, setActiveTab] = useState(crew[0].id);
 
   const crewMember = crew.find((member) => member.id === activeTab);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [activeTab]);
 
   // useEffect(() => {
   //   const interval = setInterval(() => {
@@ -94,18 +98,20 @@ function PageContent() {
   // }, []);
 
   return (
-    <section className=" w-[327px] flex flex-col items-center gap-[2.5rem] md:w-[688px] md:gap-[3rem] xl:w-[1110px] xl:flex-row xl:items-end xl:justify-between xl:h-[792px] ">
+    <section className=" w-[327px] flex flex-col items-center gap-[2.5rem] pb-[3rem] md:w-[688px] md:gap-[5rem] md:pb-0 xl:w-[1110px] xl:flex-row xl:items-end xl:justify-between xl:h-[792px] ">
       <CrewMemberInfo
         member={crewMember}
         currentCrewMember={activeTab}
         setCrewMember={setActiveTab}
       />
 
-      <img
-        src={crewMember.image}
-        alt={crewMember.name}
-        className=" w-[271.27px] md:w-[446.74px] md:h-[560px] xl:w-[539px] xl:h-[676px] "
-      />
+      <div className="w-full h-[350px] flex justify-center items-center overflow-y-hidden md:w-[446.74px] md:h-[463px] md:overflow-y-visible xl:w-[539px] xl:h-[734px] ">
+        <img
+          src={crewMember.image}
+          alt={crewMember.name}
+          className=" w-[271.27px] h-[340px] md:w-full md:h-[560px] xl:h-[676px] "
+        />
+      </div>
     </section>
   );
 }
